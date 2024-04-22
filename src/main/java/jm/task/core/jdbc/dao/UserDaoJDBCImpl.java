@@ -21,7 +21,7 @@ public class UserDaoJDBCImpl implements UserDao {
         Statement statement = null;
         String sql = "CREATE TABLE `mydbtest`.`users` (" +
                 "`ID` INT NOT NULL AUTO_INCREMENT, " +
-                "`FIRSTNAME` VARCHAR(45) NOT NULL," +
+                "`NAME` VARCHAR(45) NOT NULL," +
                 "`LASTNAME` VARCHAR(45) NOT NULL," +
                 "`AGE` INT(3) NOT NULL," +
                 "PRIMARY KEY (`id`));";
@@ -66,7 +66,7 @@ public class UserDaoJDBCImpl implements UserDao {
     @Override
     public void saveUser(String name, String lastName, byte age) throws SQLException {
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO mydbtest.users (FIRSTNAME, LASTNAME, AGE) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO mydbtest.users (NAME, LASTNAME, AGE) VALUES (?, ?, ?)";
         try {
             connection = getConnection();
             preparedStatement = connection.prepareStatement(sql);
